@@ -4,7 +4,9 @@ Nanopore software
 ## INSTALLATION
 
 You will need to have docker installed: 
-- windows howto: https://runnable.com/docker/install-docker-on-windows-10
+- Windows: https://docs.docker.com/docker-for-windows/install/
+- Mac: https://docs.docker.com/docker-for-mac/
+- Linux: https://docs.docker.com/install/linux/docker-ce/ubuntu/
 
 
 To create the docker image with the Nanopore software
