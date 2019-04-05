@@ -1,5 +1,5 @@
 # nanoenv
-Nanopore software and documentation
+Nanopore software
 
 ## INSTALLATION
 
