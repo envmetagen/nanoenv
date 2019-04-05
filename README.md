@@ -16,13 +16,13 @@ To create the docker image with the Nanopore software
 
 ## To get a terminal with the Nanopore software installed
 
-`./run_nanopore`
+`./run_nanosoft
 
 Note that the software is the the /opt folder.
 
 
 ## To run MinKNOW
 
-`./run_nanopore MinKNOW`
+`./run_nanosoft MinKNOW`
  
 
