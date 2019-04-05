@@ -3,7 +3,7 @@ Nanopore software and documentation
 
 # Docker installation
 
-- windows: [[https://runnable.com/docker/install-docker-on-windows-10]]
+- windows howto: https://runnable.com/docker/install-docker-on-windows-10
 
 # INSTALL and RUN
 
