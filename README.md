@@ -1,4 +1,4 @@
-# nanopore
+# nanoenv
 Nanopore software and documentation
 
 # Docker installation
