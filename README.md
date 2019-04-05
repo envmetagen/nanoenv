@@ -9,15 +9,15 @@ Nanopore software and documentation
 
 To create the docker image
 
- docker build -t emg:nanoenv -f Dockerfile .
+`docker build -t emg:nanoenv -f Dockerfile`
 
 To get a terminal with the Nanopore software installed
 
- ./run_nanopore
+`./run_nanopore`
 
 
 o get a terminal with the Nanopore software installed
 
- ./run_nanopore MinKNOW
+`./run_nanopore MinKNOW`
  
 
