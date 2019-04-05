@@ -1,22 +1,27 @@
 # nanoenv
 Nanopore software and documentation
 
-# Docker installation
+# INSTALLATION
 
+You will need to have docker installed: 
 - windows howto: https://runnable.com/docker/install-docker-on-windows-10
 
-# INSTALL and RUN
 
-To create the docker image
+To create the docker image with the Nanopore software
 
 `docker build -t emg:nanoenv -f Dockerfile`
 
-To get a terminal with the Nanopore software installed
+
+# RUNNING
+
+## To get a terminal with the Nanopore software installed
 
 `./run_nanopore`
 
+Note that the software is the the /opt folder.
 
-o get a terminal with the Nanopore software installed
+
+## To run MinKNOW
 
 `./run_nanopore MinKNOW`
  
