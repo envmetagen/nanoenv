@@ -18,7 +18,7 @@ To create the docker image with the Nanopore software
 
 ### To get a terminal with the Nanopore software installed
 
-`./run_nanosoft
+`./run_nanosoft`
 
 Note that the software is the the /opt folder.
 
