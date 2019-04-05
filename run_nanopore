@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+set -e
+
+docker run -ti --rm \
+   -e DISPLAY=$DISPLAY \
+   -v /tmp/:/tmp/ \
+   -p 3838:3838  \
+   -v /dev/bus/usb:/dev/bus/usb \
+   --net=host \
+   --privileged \
+   emg:nanoenv \
+   bash -c "$* "
+
