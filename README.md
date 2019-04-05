@@ -1,4 +1,4 @@
-# nanoenv [![Dockerhub](https://img.shields.io/docker/automated/jrottenberg/ffmpeg.svg)](https://hub.docker.com/r/nunofonseca/nanoenv/tags/)
+# nanoenv [![Dockerhub](https://img.shields.io/docker/automated/jrottenberg/ffmpeg.svg)](https://hub.docker.com/r/envmetagen/nanoenv/tags/)
 Nanopore software
 
 ## INSTALLATION
