@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+if [ ! -e $PWD/data ]; then
+    echo "data folder $PWD/data not found"
+    exit 1
+fi
 
 set -e
 
@@ -7,6 +11,7 @@ docker run -ti --rm \
    -v /tmp/:/tmp/ \
    -p 3838:3838  \
    -v /dev/bus/usb:/dev/bus/usb \
+   -v /data/:$PWD/data \
    --net=host \
    --privileged \
    emg:nanoenv \
