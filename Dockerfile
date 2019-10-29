@@ -1,34 +1,32 @@
-FROM ubuntu:xenial
+FROM ubuntu:bionic
+# ubuntu 18
 MAINTAINER Nuno Fonseca email: nuno.fonseca at gmail.com
-LABEL EMN.vesion="0.1" maintainer="nuno.fonseca at gmail.com"
+LABEL EMN.vesion="0.2" maintainer="nuno.fonseca at gmail.com"
 
 # To create the image
-# docker build --no-cache -t EMN:latest -f Dockerfile .
+# docker build --no-cache -t EMN:latest -f Dockerfile2 .
 
 RUN apt-get update
-#RUN apt-get install -yq --no-install-recommends sudo less wget  lsb-release xvfb libasound2 libgconf-2-4 libxss-dev libgtk-3-0 libnss3 libatomic1 libusb-1.0-0-dev usbutils
-RUN apt-get install -yq sudo less wget xvfb libusb-1.0-0-dev usbutils apt-transport-https
+
+RUN apt-get install -yq sudo less wget xvfb libusb-1.0-0-dev usbutils apt-transport-https libasound2 libgconf-2-4 libxss-dev libgtk-3-0 libnss3 libatomic1 libusb-1.0-0-dev usbutils gnupg gvfs
 
 #ENV PLATFORM $(lsb_release -cs)
 
 # key
-RUN wget -O-  --no-check-certificate https://mirror.oxfordnanoportal.com/apt/ont-repo.pub | apt-key add -
-# add repository
-RUN echo "deb http://mirror.oxfordnanoportal.com/apt xenial-stable non-free" | sudo tee /etc/apt/sources.list.d/nanoporetech.sources.list
+RUN wget -O- https://mirror.oxfordnanoportal.com/apt/ont-repo.pub | sudo apt-key add  -
+RUN echo "deb http://mirror.oxfordnanoportal.com/apt bionic-stable non-free" | sudo tee /etc/apt/sources.list.d/nanoporetech.sources.list
+
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
-RUN apt-get install -y epi2me-agent minknow-nc ont-guppy
-#ont-guppy-cpu
+RUN apt-get install -y  epi2me-agent minknow-nc
+# ont-guppy not available for ubuntu 18 2019-10-29
 
 # /opt/metrichor/MetrichorAgent
 # Minknow application directory is found in /opt/ui 
 # Reads folder: /var/lib/MinKNOW/data/
 
-# NVIDIA driver of at least version 384
-
-
-
+# NVIDIA driver: version 384 or above
 ENV MUID 1000
 ENV MGID 1000
 
@@ -40,10 +38,9 @@ RUN export uid=$MUID gid=$MGID && \
 	echo "minion ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/minion && \
 	chmod 0440 /etc/sudoers.d/minion && \
         echo "#!/usr/bin/env bash" > /usr/bin/MinKNOW && \
-	echo "cd /opt/ONT/MinKNOW; sudo bin/mk_manager_svc & " >> /usr/bin/MinKNOW && \
+	echo "sudo service minknow restart " >> /usr/bin/MinKNOW && \
 	echo "/opt/ui/MinKNOW" >> /usr/bin/MinKNOW && chmod +x /usr/bin/MinKNOW && \
 	ln -s /home/minion /var/lib/MinKNOW/data/
-## Home directory has the reads
 
 USER minion
 ENV HOME /home/minion
