@@ -11,7 +11,7 @@ You will need to have docker installed:
 
 To create the docker image with the Nanopore software
 
-`docker build -t emg:nanoenv -f Dockerfile`
+`docker build -t emg:nanoenv -f Dockerfile .`
 
 
 ## RUNNING
