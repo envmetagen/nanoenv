@@ -27,4 +27,4 @@ Note that the software is the the /opt folder.
 
 `./run_nanosoft MinKNOW`
  
-
+ 
