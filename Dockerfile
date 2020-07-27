@@ -19,7 +19,7 @@ RUN echo "deb http://mirror.oxfordnanoportal.com/apt bionic-stable non-free" | s
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
-RUN apt-get install -y  epi2me-agent minknow-nc
+RUN apt-get install -y  wget epi2me-agent minknow-nc minion-nc
 # ont-guppy not available for ubuntu 18 2019-10-29
 
 # /opt/metrichor/MetrichorAgent
@@ -38,8 +38,8 @@ RUN export uid=$MUID gid=$MGID && \
 	echo "minion ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/minion && \
 	chmod 0440 /etc/sudoers.d/minion && \
         echo "#!/usr/bin/env bash" > /usr/bin/MinKNOW && \
-	echo "sudo service minknow restart " >> /usr/bin/MinKNOW && \
-	echo "/opt/ui/MinKNOW" >> /usr/bin/MinKNOW && chmod +x /usr/bin/MinKNOW && \
+	echo "#sudo service minknow restart " >> /usr/bin/MinKNOW && \
+	echo "/opt/ont/ui/kingfisher/MinKNOW" >> /usr/bin/MinKNOW && chmod +x /usr/bin/MinKNOW && \
 	ln -s /home/minion /var/lib/MinKNOW/data/
 
 USER minion
